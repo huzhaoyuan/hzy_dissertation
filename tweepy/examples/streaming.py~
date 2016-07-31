@@ -6,15 +6,13 @@ from tweepy import Stream
 
 # Go to http://apps.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
-consumer_key = 'bSqMiPXiVElmhBIThndjHA39B'
-consumer_secret = 'AlmcT9t1kVNABkDxRheNBRQDwkLRbM3VdJF84kfIUASeikQQge'
-access_token = '4312482747-cmIdm2pK5no2HNB7a0BfrMwXTIqlRaM6MOAlfNh'
-access_token_secret = 'iqAnAilsX9vgXrfC5XXtg41o49ppeOKCzcifDTWxKgjj6'
+consumer_key=""
+consumer_secret=""
 
 # After the step above, you will be redirected to your app's page.
 # Create an access token under the the "Your access token" section
-access_token = '4312482747-cmIdm2pK5no2HNB7a0BfrMwXTIqlRaM6MOAlfNh'
-access_token_secret = 'iqAnAilsX9vgXrfC5XXtg41o49ppeOKCzcifDTWxKgjj6'
+access_token=""
+access_token_secret=""
 
 class StdOutListener(StreamListener):
     """ A listener handles tweets that are received from the stream.
@@ -22,8 +20,6 @@ class StdOutListener(StreamListener):
 
     """
     def on_data(self, data):
-        with open('result.txt','a+') as tf:
-            tf.write(data)
         print(data)
         return True
 
@@ -36,5 +32,4 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
 
     stream = Stream(auth, l)
-    stream.filter(track=['#fitness'])
-
+    stream.filter(track=['basketball'])
